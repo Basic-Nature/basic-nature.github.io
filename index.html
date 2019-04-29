@@ -19,6 +19,23 @@
         
     </head>
     <body>
+    <div>
+        <label>What's your name?
+        <input id="name" type="text">
+        </label>
+        <br>
+        <label>What language do you speak?
+        <select id="lang">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="plt">Pig-latin</option>
+        </select>
+        </label>
+        <br>
+        <button id="button" type="button">Greet me, please!</button>
+        <div id="message"></div>
+    </div>
+    <button id="clicker">Press me later</button>
         
         <h1>Juancarlos' Great blogging Journey</h1>
 
@@ -44,5 +61,29 @@
             <p>Now, I do have sight for a brighter future, and that is why it is best to follow the dreams I have established so far. Otherwise, I will get lost in the void of what-ifs. This in which is a endless pit deprived of the passion I have left to share.</p>
             
         </h5>
+       <script>
+           var clickerButton = document.getElementById("clicker");
+           var onButtonClick = function() {
+               clickerButton.textContent = "So you clicked me anyways";
+};
+        clickerButton.addEventListener("click", onButtonClick);
+           
+       var button = document.getElementById("button");
+        var onButtonClick = function() {
+    var name = document.getElementById("name").value;
+     var lang = document.getElementById("lang").value;
+    var greeting;
+    if (lang === "es") {
+        greeting = "Hola, " + name;
+    } else if (lang === "plt") {
+        greeting = "Ello-hay, " + name;
+    } else {
+        greeting = "Greetings, " + name;
+    }
+    document.getElementById("message").textContent += greeting;     
+  };
+    button.addEventListener("click", onButtonClick);
+           
+       </script>
     </body>
 </html>
